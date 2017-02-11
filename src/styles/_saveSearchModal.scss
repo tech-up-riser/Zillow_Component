@@ -1,0 +1,23 @@
+.save-search-modal-wrap {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  center {
+    min-width: 70vw;
+    min-height: 50vh;
+    background-color: #ffffff;
+
+    input[type='text'] {
+      border: black;
+      width: auto;
+      border: black 1px solid;
+    }
+  }
+}

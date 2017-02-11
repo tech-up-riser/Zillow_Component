@@ -1,0 +1,43 @@
+@function set-input-background-color($color) {
+  @if (lightness($color) > 50) {
+    @return #FFFFFF;
+  } @else {
+    @return #444444;
+  }
+}
+@function set-input-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #333333;
+  } @else {
+    @return #FFFFFF;
+  }
+}
+$inputBackground: set-input-background-color($backgroundBase);
+$inputText: set-input-text-color($backgroundBase);
+input[type=text] {
+	box-sizing: border-box;
+	width: 100%;
+	background-color: $inputBackground;
+	border: 0;
+	padding: 8px 10px;
+	color: $inputText;
+	font-size: $interfaceFontSize;
+	font-family: $defaultFontFamily;
+	font-weight: 400;
+	outline: none;
+	&::-webkit-input-placeholder {
+		color: $inputText;
+	}
+	&::-moz-placeholder {
+		color: $inputText;
+	}
+	&:-ms-input-placeholder {
+		color: $inputText;
+	}
+	&:-moz-placeholder {
+		color: $inputText;
+	}
+	&:focus {
+		box-shadow: inset 0 0 3px 1px $attention;
+	}
+}

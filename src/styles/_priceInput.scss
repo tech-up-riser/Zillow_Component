@@ -1,0 +1,19 @@
+.priceInput {
+  span {
+    padding:0px 5px;
+  }
+  input {
+    width: 91px;
+    border: 1px solid $border;
+    padding: 8px 10px;
+    border-radius: 4px;
+  }
+
+  input.low-price {
+    margin-right: 0px;
+  }
+
+  input.high-price {
+    margin-left: 0px;
+  }
+}

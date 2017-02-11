@@ -1,0 +1,31 @@
+$backgroundBase: #EEEEEE;
+$textBase: #333333;
+$attention: #F49C3A;
+
+@function set-border-color($color) {
+  @if (lightness($color) < 10) {
+    @return #333333;
+  } @else if (lightness($color) < 50) {
+    @return #000000;
+  } @else {
+  	@return #BFBFBF;
+  }
+}
+$border: set-border-color($backgroundBase);
+
+@function set-text-fade-color($color) {
+	@if (lightness($color) > 50) {
+	  @return darken($color, 30%);
+	} @else {
+	  @return lighten($color, 40%);
+	}
+}
+$textFade: set-text-fade-color($textBase);
+
+$invertText: #FFFFFF;
+$universalActive: #6EBA6D;
+$universalDeactive: #F1F1F1;
+$favoriteMarker: #FADE33;
+
+$ribbon-backgroundColor: #8bc3ff;
+$ribbon-color: white;

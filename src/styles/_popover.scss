@@ -1,0 +1,28 @@
+$popoverWidth: 280px;
+$popoverHeight: 102px;
+@function calculate-popover-offset-width($width){
+  @return ($width/2)*-1;
+}
+$popoverOffsetWidth: calculate-popover-offset-width($popoverWidth);
+$popoverOffsetHeight: $markerHeight - 2px;
+.popover {
+	width: $popoverWidth;
+	max-height: $popoverHeight;
+	box-shadow: 0 0 8px 1px rgba(0,0,0,0.3);
+	font-size: $defaultFontSize;
+	font-weight: $defaultFontWeight;
+	position: absolute;
+	bottom: $popoverOffsetHeight;
+	left: $popoverOffsetWidth;
+	z-index: 500;
+	background-color: white;
+	@import 'listingMini';
+	.listing.mini {
+		box-sizing: border-box;
+		min-height: $popoverHeight;
+	}
+	+ .marker {
+		background-color: $markerBorder;
+		z-index: 100;
+	}
+}

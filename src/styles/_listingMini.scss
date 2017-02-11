@@ -1,0 +1,72 @@
+.listing.mini {
+	padding: 10px;
+	position: relative;
+    text-decoration: none;
+	.image-overlay,
+	.buttons,
+	.favorite {
+		display: none;
+	}
+	.image {
+		background-repeat: no-repeat;
+		background-size: 130% auto;
+		background-position: center;
+		position: absolute;
+		top: 0px;
+        width: 121px;
+        height: 103px;
+        bottom: 0px;
+	    margin-top: -10px;
+	}
+	.info,
+	.ribbon {
+		margin-left: 130px;
+		font-size: 0.8em;
+        color: black;
+	}
+	.info {
+		list-style-type: none;
+		padding: 0;
+        margin-left: 130px;
+        margin-top: 0px;
+        color: #000;
+		li {
+			display: inline-block;
+		}
+		li:first-child,
+		li:last-child {
+			display: block;
+            padding: 1px 0px;
+		}
+		li:first-child {
+			font-weight: $defaultFontBold;
+		}
+	}
+  	p {
+	  font-size: 13px;
+	  color: black;
+	  font-weight: 400;
+	  padding-left: 10px;
+	  margin-top: -8px;
+	  margin-bottom: 1px;
+	}
+	.ribbon {
+		margin-bottom: 3px;
+	}
+    .listing-inner {
+	  margin-top: -10px;
+      .carousel-controls {
+        display: none;
+      }
+	  .image {
+		display: flex;
+	  }
+    }
+}
+@-moz-document url-prefix() {
+  .listing.mini { 
+    .image {
+      margin-top: 10px;
+    }  
+  }
+ }

@@ -1,0 +1,43 @@
+saved-search {
+  $defaultFontSize: 16px;
+  $defaultFontFamily: 'Open Sans', sans-serif;
+  $defaultFontWeight: 300;
+  $defaultFontBold: 400;
+
+  font-size: $defaultFontSize;
+  font-family: $defaultFontFamily;
+  font-weight: $defaultFontWeight;
+  overflow: hidden;
+  position: relative;
+  z-index: initial;
+  display: flex;
+  flex: 1;
+  @import 'config/fullscreen';
+  @import 'config/colors';
+  @import 'config/forms';
+  @import 'map';
+  @import 'listings';
+  @import 'filters';
+  @import 'moreFilters';
+  @import 'priceInput';
+  @import 'saveSearchModal';
+  @import 'footer';
+  @import 'selectize';
+
+  background-color: $backgroundBase;
+  color: $textBase;
+
+  .app {
+    display: flex;
+    flex: 1;
+    min-height: 800px;
+
+    > div {
+      flex: 1;
+    }
+  }
+}
+
+body {
+  margin: 0;
+}

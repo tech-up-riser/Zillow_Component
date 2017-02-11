@@ -1,0 +1,128 @@
+@function set-filters-background-color($color) {
+   @if (lightness($color) > 50){
+    @return #FFFFFF;
+  }
+  @else {
+     @return #444444;
+  }
+}
+.ss-filters-container {
+  position: relative;
+  @import 'dropout';
+  .ss-filters {
+    display: none;
+    width: 100%;
+    height: 50px;
+    background-color: set-filters-background-color($backgroundBase);
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+    position: relative;
+    z-index: 15;
+    @import 'autosuggest';
+    .section {
+      border-right: 1px solid $border;
+      height: 100%;
+      &:first-child {}
+      &:last-child {
+        border-right: transparent;
+        height: auto;
+      }
+      &:last-child {
+        padding-right: 12px;
+      }
+      &.flex {
+        flex-grow: 1;
+      }
+      &.search {
+        display: flex;
+      }
+      .dropdown,
+      .dropdown-control,
+      .input-container-search,
+      .react-autosuggest__container,
+      .trigger-dropout,
+      .savedSearchList,
+      .searchesDropDown-toggle,
+      .searchesDropDown-toggle:before,
+      input[type=text] {
+        height: 100%;
+      }
+      input[type=text] {
+        padding-right: 40px;
+      }
+      .dropdown-control {
+        box-sizing: border-box;
+      }
+      .dropdown-arrow,
+      .dropdown-placeholder,
+      .trigger-dropout,
+      .searchesDropDown-toggle:before {
+        cursor: pointer;
+        line-height: 34px;
+      }
+      .button {
+        float: right;
+        margin-top: 9px;
+      }
+      .savedSearchList {
+        float: right;
+      }
+    }
+    .input-container-search {
+      padding-left: 12px;
+      position: relative;
+      .icon-search {
+        height: 100%;
+        color: $textFade;
+        font-size: 1.5em;
+        line-height: 50px;
+        position: absolute;
+        top: 0;
+        right: 10px;
+      }
+    }
+    @import 'savedSearchDropDown';
+    .searchesDropDown {
+      left: auto !important;
+      right: 0;
+    }
+  }
+}
+@media only screen and (min-width: 40.062em) {
+  .ss-filters-container {
+    .ss-filters {
+      flex-wrap: wrap;
+      display: flex;
+    }
+  }
+}
+@media only screen and (max-width: 800px) and (min-width: 768px) {
+  .ss-filters-container {
+    .ss-filters {
+      .input-container-search {
+        width: 21%;
+        padding-left:4px;
+      }
+      .section {
+        &:last-child {
+          padding-right: 4px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 641px) {
+  .ss-filters-container {
+    .ss-filters {
+      .input-container-search {
+        width: 19%;
+        padding-left: 0px;
+      }
+      .section {
+        &:last-child {
+          padding-right: 0px;
+        }
+      }
+    }
+  }
+}

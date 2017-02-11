@@ -1,0 +1,44 @@
+@function set-dropdown-background-color($color) {
+  @if (lightness($color) > 50) {
+    @return #FFFFFF;
+  } @else {
+    @return #444444;
+  }
+}
+@function set-dropdown-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #333333;
+  } @else {
+    @return #FFFFFF;
+  }
+}
+$dropdownBackground: set-dropdown-background-color($backgroundBase);
+$dropdownText: set-dropdown-text-color($backgroundBase);
+$dropdownHovered: darken($dropdownBackground, 10%);
+.react-autosuggest__container {
+  position: relative;
+}
+.react-autosuggest__suggestions-container {
+  list-style-type: none;
+  min-width: 100%;
+  max-height: 310px;
+  background-color: $dropdownBackground;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+  color: $dropdownText;
+  font-size: $interfaceFontSize;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow-y: auto;
+}
+.react-autosuggest__suggestion {
+  box-sizing: border-box;
+  display: block;
+  padding: 8px 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: $dropdownHovered;
+  }
+}

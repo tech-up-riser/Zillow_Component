@@ -1,0 +1,88 @@
+@function set-button-hover-shadow($color) {
+  @if (lightness($color) > 50) {
+    @return 2px 2px 2px rgba(0,0,0,0.4);
+  } @else {
+    @return 3px 3px 3px rgba(0,0,0,0.8);
+  }
+}
+@function set-button-active-shadow($color) {
+  @if (lightness($color) > 50) {
+    @return 4px 4px 4px rgba(0,0,0,0.4);
+  } @else {
+    @return 5px 5px 5px rgba(0,0,0,0.8);
+  }
+}
+$buttonHoverShadow: set-button-hover-shadow($backgroundBase);
+$buttonActiveShadow: set-button-active-shadow($backgroundBase);
+
+@function set-button-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return $textBase;
+  } @else {
+    @return $invertText;
+  }
+}
+$attentionButtonText: set-button-text-color($attention);
+$attentionButtonHover: darken($attention, 7%);
+$attentionButtonActive: darken($attention, 15%);
+
+@function set-button-utility-color($color) {
+  @if (lightness($color) > 50) {
+    @return #909090;
+  } @else {
+    @return #BFBFBF;
+  }
+}
+$utilityButtonColor: set-button-utility-color($backgroundBase);
+
+.button {
+	background-color: transparent;
+	border: 1px solid $attention;
+	border-radius: 3px;
+	padding: 7px 15px;
+	box-shadow: 0 0 1px rgba(0,0,0,0);
+	color: $attention;
+	font-size: $interfaceFontSizeSM;
+	text-transform: uppercase;
+	transition: box-shadow, 0.3s;
+	cursor: pointer;
+	outline: none;
+	&:hover {
+		box-shadow: $buttonHoverShadow;
+		transition: all, 0.2s;
+	}
+	&:active {
+		box-shadow: $buttonActiveShadow;
+		transition: all, 0.1s;
+	}
+	&.button-attention {
+		background-color: $attention;
+		color: $attentionButtonText;
+		top: 2px;
+		&:hover {
+			background-color: $attentionButtonHover;
+			border-color: $attentionButtonHover;
+		}
+		&:active {
+			background-color: $attentionButtonActive;
+			border-color: $attentionButtonActive;
+		}
+	}
+	&.button-utility {
+		border-color: $utilityButtonColor;
+		border-radius: 2px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		color: $utilityButtonColor;
+		text-transform: none;
+		.icon {
+			font-size: 1.05em;
+		}
+		.icon-right {
+			padding-left: 3px;
+		}
+		.icon-left {
+			padding-right: 3px;
+		}
+	}
+}

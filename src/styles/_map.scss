@@ -1,0 +1,113 @@
+$markerWidth: 80px;
+$markerHeight: 28px;
+@function calculate-marker-offset($width, $divisor){
+  @return ($width/$divisor)*-1;
+}
+$markerOffset: calculate-marker-offset($markerWidth, 2);
+$markerColor: #808080;
+@function set-marker-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return #333333;
+  } @else {
+    @return #FFFFFF;
+  }
+}
+$markerText: set-marker-text-color($markerColor);
+$markerBorder: darken($markerColor, 10%);
+$cluster-width: 40px !default;
+$cluster-height: 40px !default;
+$cluster-border-width: 5px !default;
+$cluster-font-size: 14px !default;
+
+.map-container {
+  &.hidden {
+    display: none;
+  }
+  .drawingmanager-ui{
+    display: block;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    margin: 20px;
+
+    .draw{
+      cursor: pointer;
+      padding: 7px 13px;
+      font-size: 20px;
+      background-color: white;
+      color: #8e8e93;
+      border-radius: 5px;
+      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+    }
+    .draw-remove{
+      cursor: pointer;
+      padding: 7px 13px;
+      font-size: 20px;
+      background-color: white;
+      color: #8e8e93;
+      border-radius: 5px;
+      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
+    }
+  }
+  .marker {
+    /* background-image: url('http://imgh.us/mapIcon.svg'); */
+    display: inline-block;
+    box-sizing: border-box;
+    width: $markerWidth;
+    height: $markerHeight;
+    background-color: $markerColor;
+    margin-left: -50%;
+    border: 1px solid $markerBorder;
+    color: $markerText;
+    font-size: $defaultFontSize;
+    font-weight: $defaultFontBold;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: $markerOffset;
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-top-color: $markerBorder;
+      position: absolute;
+      bottom: -12px;
+      left: calc(50% - 6px);
+    }
+    .short-price {
+      line-height: 28px;
+    }
+    &:hover {
+      background-color: $markerBorder;
+    }
+  }
+  .cluster {
+    position: absolute;
+    cursor: pointer;
+    width: $cluster-width;
+    height: $cluster-height;
+    left: -$cluster-width / 2;
+    top: -$cluster-height / 2;
+
+    border: $cluster-border-width solid #004336;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    color: #333;
+
+    font-size: $cluster-font-size;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @import 'popover';
+}
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+  .map-container {
+    margin-top: 37px;
+  }
+}

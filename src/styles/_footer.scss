@@ -1,0 +1,42 @@
+@function set-button-text-color($color) {
+  @if (lightness($color) > 70) {
+    @return $textBase;
+  } @else {
+    @return $invertText;
+  }
+}
+$attentionText: set-button-text-color($attention);
+.ss-filters-footer {
+	list-style-type: none;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid $border;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+	.tab {
+		box-sizing: border-box;
+		display: inline-block;
+		width: 33.3%;
+		height: 100%;
+		background-color: $backgroundBase;
+		border-left: 1px solid $border;
+		color: $attention;
+		font-size: 80%;
+		font-weight: 400;
+		text-transform: uppercase;
+		text-align: center;
+		line-height: 50px;
+		cursor: pointer;
+	}
+	.tab:last-child {
+		border-left: 0;
+	}
+	.tab:active {
+		background-color: $attention;
+		color: $attentionText;
+	}
+}

@@ -1,0 +1,144 @@
+.listing {
+  cursor: pointer;
+  position: relative;
+  &.hovered .listing-inner {
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.3);
+  }
+  .listing-inner,
+  .image,
+  .image-overlay,
+  .carousel-controls {
+    position: absolute;
+  }
+  .listing-inner {
+    top: $listings-gutter;
+    right: $listings-gutter;
+    bottom: $listings-gutter;
+    left: $listings-gutter;
+  }
+  .image,
+  .image-overlay,
+  .carousel-controls {
+    width: 100%;
+    height: 100%;
+  }
+  .image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .image-overlay {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 50%,rgba(0,0,0,.3) 75%,rgba(0,0,0,.6) 100%);
+  }
+  .carousel-controls {
+    top: 0;
+    left: 0;
+    .left,
+    .right {
+      width: 50px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.30);
+      position: absolute;
+      &.hidden {
+        opacity: 0;
+      }
+      &.clickThrough {
+        pointer-events: none;
+      }
+      i {
+        color: $invertText;
+        font-size: 30px;
+        position: absolute;
+        top: calc(50% - 30px);
+      }
+    }
+    .left {
+      left: 0;
+      i {
+        left: 0;
+        margin-left: 16px;
+      }
+    }
+    .right {
+      right: 0;
+      i {
+        right: 0;
+        margin-right: 16px;
+      }
+    }
+  }
+  .ribbon {
+    background-color: #8bc3ff;
+    position: absolute;
+    font-size: 10px;
+    font-weight: 400;
+    color: white;
+    padding: 5px;
+    margin-top: 15px;
+  }
+  p {
+    display: none;
+  }
+  .info {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    padding-bottom: 6px;
+    color: $invertText;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    li {
+      display: inline-block;
+      margin: 0;
+      font-size: 85%;
+    }
+    li:first-child,
+    li:last-child {
+      display: block;
+    }
+    li:first-child {
+      margin-bottom: -2px;
+      font-size: 120%;
+      font-weight: $defaultFontBold;
+    }
+    li:last-child {
+      margin-top: 5px;
+    }
+  }
+  .buttons {
+    display: none;
+    width: 100%;
+    position: absolute;
+  }
+  .favorite {
+    font-size: 22px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    &:hover {
+      transform: scale(1.15);
+    }
+    &:not(.my-favorite) {
+      color: rgba(0, 0, 0, 0.6);
+      -webkit-text-stroke-color: $invertText;
+      -webkit-text-stroke-width: 1px;
+      text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    }
+    &.my-favorite {
+      color: $favoriteMarker;
+      -webkit-text-stroke-color: rgba(0, 0, 0, 0.45);
+      -webkit-text-stroke-width: 0.6px;
+    }
+  }
+}
+@media only screen and (min-width: 40.062em) and (max-width: 64em) {
+  .listing {
+    .listing-inner {
+      top: $listings-gutter-reduced;
+      right: $listings-gutter-reduced;
+      bottom: $listings-gutter-reduced;
+      left: $listings-gutter-reduced;
+    }
+  }
+}

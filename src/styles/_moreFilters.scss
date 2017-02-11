@@ -1,0 +1,54 @@
+.dropout {
+  display: none;
+  background-color: rgba($headingBackground, 0.9);
+  border-top: 1px solid $border;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  padding: 40px 80px;
+  color: $headingText;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  &.open {
+    display: flex;
+  }
+
+  .more-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding:0 40px;
+
+    .more-primary {
+      display: flex;
+      flex: 1;
+      padding-top: 20px;
+
+      .section {
+        flex: 1;
+        div {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .more-secondarys {
+      display: flex;
+      flex-direction: row;
+
+      div {
+        flex: 1;
+        font-size: 14px;
+        border-radius: 4px;
+      }
+    }
+    .dropdown {
+      .dropdown-control {
+        border: 1px solid $border;
+        margin-right: 30px;
+      }
+    }
+  }
+}

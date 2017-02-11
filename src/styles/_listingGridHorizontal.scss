@@ -1,0 +1,135 @@
+.listing {
+	height: 200px;
+	margin-left: $listings-gutter;
+	margin-right: $listings-gutter;
+	margin-bottom: $listings-gutter-doubled;
+	border: 1px solid $border;
+	position: relative;
+	&:first-child {
+		margin-top: $listings-gutter;
+	}
+	&:hover {
+		box-shadow: 0 0 4px 2px rgba(0,0,0,0.3);
+	}
+	.carousel-controls {
+		display: none;
+	}
+	.listing-inner {
+		box-sizing: border-box;
+		height: 200px;
+		margin-left: 216px;
+		position: relative;
+	}
+	.image {
+		width: 200px;
+		height: 200px;
+		border-right: 1px solid $border;
+		position: absolute;
+		top: 0;
+		left: -216px;
+	}
+	.ribbon,
+	.listing-agent,
+	.tags,
+	.info,
+	.intro,
+	.buttons,
+	.favorite {
+		position: absolute;
+	}
+	.tags,
+	.info,
+	.buttons {
+		left: 0;
+	}
+	.tags,
+	.info {
+		width: 40%;
+	}
+	.listing-agent,
+	.intro {
+		width: 52%;
+		left: calc(48% - 16px);
+	}
+	.tags,
+	.listing-agent {
+		top: 12px;
+	}
+	.ribbon {
+		top: 15px;
+		left: -216px;
+	}
+	.info {
+		top: 53px;
+	}
+	.intro {
+		top: 87px;
+	}
+	.buttons {
+		bottom: 12px;
+	}
+	.favorite {
+		bottom: 12px;
+		right: 16px;
+	}
+	.tags {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		font-size: 75%;
+		font-weight: $defaultFontBold;
+		text-transform: uppercase;
+		li {
+			display: inline-block;
+			padding: 0;
+			&:after {
+				content: ', ';
+				padding-right: 4px;
+			}
+			&:last-child:after {
+				content: '';
+			}
+		}
+	}
+	.listing-agent {
+		color: rgba($textBase, 0.5);
+		font-size: 70%;
+	}
+	.info li:first-child {
+		margin-bottom: 5px;
+	}
+	.intro {
+		.intro-header {
+			margin: 0;
+			font-size: 85%;
+			font-weight: $defaultFontWeight;
+		}
+		.intro-desc {
+			height: 34px;
+			margin: 5px 0 0 0;
+			font-size: 75%;
+		}
+		.intro-desc > span {
+			display: block;
+		}
+		.intro-desc > br {
+			display: none;
+		}
+	}
+	.buttons {
+		.button:last-child {
+			margin-left: 16px;
+		}
+	}
+	.favorite {
+	    &:not(.my-favorite) {
+	      color: transparent;
+	      -webkit-text-stroke-color: rgba($textBase, 0.5);
+	    }
+	    &.my-favorite {
+	      color: $favoriteMarker;
+	      -webkit-text-stroke-color: darken($favoriteMarker, 20%);
+	      text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.5);
+	    }
+	  }
+}

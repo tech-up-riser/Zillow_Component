@@ -1,0 +1,28 @@
+.map-container,
+.listings-container {
+	width: 100%;
+	height: calc(100% - 52px);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.visible-listings {
+	.map-container {
+		z-index: 4;
+		opacity: 0;
+	}
+	.listings-container {
+		z-index: 5;
+		opacity: 1;
+	}
+}
+.visible-map {
+	.map-container {
+		z-index: 5;
+		opacity: 1;
+	}
+	.listings-container {
+		z-index: 4;
+		opacity: 0;
+	}
+}

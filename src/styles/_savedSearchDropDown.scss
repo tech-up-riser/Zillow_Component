@@ -1,0 +1,84 @@
+@function set-dropdown-background-color($color) {
+  @if (lightness($color) > 50) {
+    @return #FFFFFF;
+  } @else {
+    @return #444444;
+  }
+}
+@function set-dropdown-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #333333;
+  } @else {
+    @return #FFFFFF;
+  }
+}
+$dropdownBackground: set-dropdown-background-color($backgroundBase);
+$dropdownText: set-dropdown-text-color($backgroundBase);
+$dropdownSelected: darken($dropdownBackground, 6%);
+$dropdownHovered: darken($dropdownBackground, 10%);
+.savedSearchList {
+	position: relative;
+	.searchesDropDown-toggle {
+		box-sizing: border-box;
+		display: inline-block;
+		float: right;
+		padding: 8px 10px;
+		color: $dropdownText;
+	  	font-size: $interfaceFontSize;
+	  	cursor: pointer;
+	  	&.open {
+	  		transform: rotate(180deg);
+	  	}
+	}
+	.searchesDropDown {
+		display: none;
+		list-style-type: none;
+		max-height: 310px;
+		background-color: $dropdownBackground;
+		box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+	  	margin: 0;
+	  	padding: 0 10px;
+	  	white-space: nowrap;
+	  	color: $dropdownText;
+	  	font-size: $interfaceFontSize;
+	  	position: absolute;
+	  	top: 100%;
+	  	left: 0;
+	  	overflow-y: auto;
+	  	&.open {
+	  		display: block;
+	  	}
+	  	li:not(.dropDownTitle) {
+	  		padding: 8px 30px 8px 0;
+	  		border-bottom: 1px solid $border;
+	  		color: $attention;
+	  		cursor: pointer;
+	  		&:not(.is-selected):hover {
+		      background-color: $dropdownHovered;
+		      margin-left: -10px;
+		      margin-right: -10px;
+		      padding-left: 10px;
+		      padding-right: 40px;
+		    }
+		    &.is-selected {
+		    	position: relative;
+		    }
+		    &.is-selected:after {
+		    	content: '\f122';
+		    	color: $universalActive;
+		    	font-family: 'Ionicons';
+		    	position: absolute;
+		    	top: calc(50% - 7px);
+		    	right: 0;
+		    }
+	  	}
+	  	li:last-child {
+	  		border-bottom: 0;
+	  	}
+	  	.dropDownTitle {
+	  		padding: 12px 10px;
+	  		text-transform: uppercase;
+	  		text-align: center;
+	  	}
+	}
+}

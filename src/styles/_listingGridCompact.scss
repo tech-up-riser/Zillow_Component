@@ -1,0 +1,110 @@
+.listing {
+  height: 0;
+  float: left;
+  position: relative;
+  &:hover .listing-inner {
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.3);
+  }
+  .buttons,
+  .tags,
+  .intro {
+    display: none;
+  }
+  .listing-inner,
+  .image,
+  .image-overlay,
+  .carousel-controls {
+    position: absolute;
+  }
+  .listing-inner {
+    top: $listings-gutter;
+    right: $listings-gutter;
+    bottom: $listings-gutter;
+    left: $listings-gutter;
+  }
+  .image,
+  .image-overlay,
+  .carousel-controls {
+    width: 100%;
+    height: 100%;
+  }
+  .image-overlay {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 50%,rgba(0,0,0,.3) 75%,rgba(0,0,0,.6) 100%);
+  }
+  .carousel-controls {
+    top: 0;
+    left: 0;
+    .left,
+    .right {
+      width: 50px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.30);
+      position: absolute;
+      &.hidden {
+        opacity: 0;
+      }
+      &.clickThrough {
+        pointer-events: none;
+      }
+      i {
+        color: $invertText;
+        font-size: 30px;
+        position: absolute;
+        top: calc(50% - 30px);
+      }
+    }
+    .left {
+      left: 0;
+      i {
+        left: 0;
+        margin-left: 16px;
+      }
+    }
+    .right {
+      right: 0;
+      i {
+        right: 0;
+        margin-right: 16px;
+      }
+    }
+  }
+  .ribbon {
+    position: absolute;
+    top: 15px;
+    left: 0;
+  }
+  .info {
+    color: $invertText;
+    position: absolute;
+    bottom: 6px;
+    left: 10px;
+    li:last-child {
+      margin-top: 5px;
+    }
+  }
+  .favorite {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    &:not(.my-favorite) {
+      color: rgba(0, 0, 0, 0.6);
+      -webkit-text-stroke-color: $invertText;
+      text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    }
+    &.my-favorite {
+      color: $favoriteMarker;
+      -webkit-text-stroke-color: darken($favoriteMarker, 20%);
+      text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+@media only screen and (min-width: 40.062em) and (max-width: 64em) {
+  .listing {
+    .listing-inner {
+      top: $listings-gutter-reduced;
+      right: $listings-gutter-reduced;
+      bottom: $listings-gutter-reduced;
+      left: $listings-gutter-reduced;
+    }
+  }
+}
